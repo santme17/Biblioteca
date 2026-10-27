@@ -1,4 +1,4 @@
-package com.example.biblioteca.screen
+package com.example.biblioteca.ui.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn

@@ -1,4 +1,4 @@
-package com.sena.biblioteca.navegation
+package com.example.biblioteca.navegation
 
 import kotlinx.serialization.Serializable
 
