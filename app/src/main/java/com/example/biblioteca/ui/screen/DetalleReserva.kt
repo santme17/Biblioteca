@@ -32,6 +32,7 @@ fun DetalleReservaScreen(
                 contentDescription = "Portada de $nombreLibro",
                 modifier = Modifier
                     .height(120.dp)
+                    .aspectRatio(138f / 188f)
                     .align(Alignment.CenterHorizontally)
             )
 

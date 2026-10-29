@@ -51,7 +51,9 @@ fun RenovacionExitosaScreen(
                 Image(
                     painter = painterResource(id = R.drawable.portada_clean_code),
                     contentDescription = "Portada de $nombreLibro",
-                    modifier = Modifier.height(60.dp)
+                    modifier = Modifier
+                        .height(60.dp)
+                        .aspectRatio(138f / 188f)
                 )
 
                 Spacer(modifier = Modifier.width(16.dp))

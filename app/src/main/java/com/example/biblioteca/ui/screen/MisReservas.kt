@@ -37,7 +37,9 @@ fun MisReservasScreen(
                     Image(
                         painter = painterResource(id = R.drawable.portada_clean_code),
                         contentDescription = "Portada de Clean Code",
-                        modifier = Modifier.height(120.dp)
+                        modifier = Modifier
+                            .height(120.dp)
+                            .aspectRatio(138f / 188f)
                     )
 
                     Spacer(modifier = Modifier.width(16.dp))
