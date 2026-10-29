@@ -10,7 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.biblioteca.ui.component.BarraSuperior
-
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import com.example.biblioteca.R
+import androidx.compose.ui.Alignment
 @Composable
 fun DetalleLibroScreen(
     nombreLibro: String,
@@ -25,6 +28,14 @@ fun DetalleLibroScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp)
         ) {
+            Image(
+                painter = painterResource(id = R.drawable.portada_clean_code),
+                contentDescription = "Portada de $nombreLibro",
+                modifier = Modifier
+                    .height(200.dp)
+                    .align(Alignment.CenterHorizontally)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = "Parámetro recibido: $nombreLibro",
                 style = MaterialTheme.typography.labelLarge
