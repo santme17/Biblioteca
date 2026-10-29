@@ -1,18 +1,17 @@
 package com.example.biblioteca.ui.screen
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.biblioteca.R
-import com.example.biblioteca.ui.component.BarraSuperior
+import com.example.biblioteca.ui.section.EncabezadoSection
+import com.example.biblioteca.ui.section.ReservaItemSection
 
 @Composable
 fun MisReservasScreen(
@@ -20,7 +19,7 @@ fun MisReservasScreen(
     onVolver: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
-        BarraSuperior(titulo = "Mis Reservas", onVolver = onVolver)
+        EncabezadoSection(titulo = "Mis Reservas", onVolver = onVolver)
 
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
@@ -28,38 +27,7 @@ fun MisReservasScreen(
                 style = MaterialTheme.typography.titleMedium
             )
             Spacer(modifier = Modifier.height(12.dp))
-
-            Card(modifier = Modifier.fillMaxWidth()) {
-                Row(
-                    modifier = Modifier.padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.portada_clean_code),
-                        contentDescription = "Portada de Clean Code",
-                        modifier = Modifier
-                            .height(120.dp)
-                            .aspectRatio(138f / 188f)
-                    )
-
-                    Spacer(modifier = Modifier.width(16.dp))
-
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(text = "Libro: Clean Code")
-                        Text(text = "Fecha: 15/06/2026")
-                        Text(text = "Estado: Activa")
-
-                        Spacer(modifier = Modifier.height(12.dp))
-
-                        Button(
-                            onClick = { onVerReserva("Clean Code", "15/06/2026", "RES-2026-001") },
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text("Ver Reserva")
-                        }
-                    }
-                }
-            }
+            ReservaItemSection(onVerReserva = onVerReserva)
         }
     }
 }

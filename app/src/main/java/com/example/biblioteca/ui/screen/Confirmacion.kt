@@ -1,13 +1,17 @@
 package com.example.biblioteca.ui.screen
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.biblioteca.ui.section.AccionesConfirmacionSection
+import com.example.biblioteca.ui.section.ResumenReservaSection
 
 @Composable
 fun ConfirmacionScreen(
@@ -23,43 +27,11 @@ fun ConfirmacionScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            imageVector = Icons.Default.Check,
-            contentDescription = null,
-            modifier = Modifier.size(96.dp),
-            tint = MaterialTheme.colorScheme.primary
-        )
-
-        Text(
-            text = "Reserva Exitosa",
-            style = MaterialTheme.typography.headlineMedium
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = "Libro: $nombreLibro")
-                Text(text = "Fecha: $fecha")
-            }
-        }
-
+        ResumenReservaSection(nombreLibro = nombreLibro, fecha = fecha)
         Spacer(modifier = Modifier.height(24.dp))
-
-        Button(
-            onClick = onVolverInicio,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Volver al Inicio")
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedButton(
-            onClick = onVerReservas,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Ver Mis Reservas")
-        }
+        AccionesConfirmacionSection(
+            onVolverInicio = onVolverInicio,
+            onVerReservas = onVerReservas
+        )
     }
 }

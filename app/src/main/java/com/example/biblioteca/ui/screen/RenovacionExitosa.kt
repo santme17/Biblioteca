@@ -1,20 +1,17 @@
 package com.example.biblioteca.ui.screen
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.biblioteca.R
+import com.example.biblioteca.ui.section.RenovacionResumenSection
+import com.example.biblioteca.ui.section.VolverReservasSection
 
 @Composable
 fun RenovacionExitosaScreen(
@@ -29,49 +26,8 @@ fun RenovacionExitosaScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            imageVector = Icons.Default.Check,
-            contentDescription = null,
-            modifier = Modifier.size(96.dp),
-            tint = MaterialTheme.colorScheme.primary
-        )
-
-        Text(
-            text = "Reserva Renovada",
-            style = MaterialTheme.typography.headlineMedium
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Row(
-                modifier = Modifier.padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.portada_clean_code),
-                    contentDescription = "Portada de $nombreLibro",
-                    modifier = Modifier
-                        .height(60.dp)
-                        .aspectRatio(138f / 188f)
-                )
-
-                Spacer(modifier = Modifier.width(16.dp))
-
-                Column {
-                    Text(text = "Libro: $nombreLibro")
-                    Text(text = "Nueva Fecha: $fechaNueva")
-                }
-            }
-        }
-
+        RenovacionResumenSection(nombreLibro = nombreLibro, fechaNueva = fechaNueva)
         Spacer(modifier = Modifier.height(24.dp))
-
-        Button(
-            onClick = onVolverReservas,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Volver a Mis Reservas")
-        }
+        VolverReservasSection(onVolverReservas = onVolverReservas)
     }
 }
