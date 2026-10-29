@@ -1,5 +1,6 @@
 package com.example.biblioteca.ui.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -10,8 +11,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.biblioteca.R
 import com.example.biblioteca.ui.component.BarraSuperior
 
 @Composable
@@ -27,6 +31,17 @@ fun RenovarReservaScreen(
         BarraSuperior(titulo = "Renovar Reserva", onVolver = onVolver)
 
         Column(modifier = Modifier.padding(16.dp)) {
+            Image(
+                painter = painterResource(id = R.drawable.portada_clean_code),
+                contentDescription = "Portada de $nombreLibro",
+                modifier = Modifier
+                    .height(120.dp)
+                    .aspectRatio(138f / 188f)
+                    .align(Alignment.CenterHorizontally)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
             Text(
                 text = "Libro: $nombreLibro",
                 style = MaterialTheme.typography.titleMedium
