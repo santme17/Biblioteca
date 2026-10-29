@@ -1,5 +1,6 @@
 package com.example.biblioteca.ui.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
@@ -11,7 +12,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.biblioteca.R
 
 @Composable
 fun RenovacionExitosaScreen(
@@ -41,9 +44,22 @@ fun RenovacionExitosaScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         Card(modifier = Modifier.fillMaxWidth()) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = "Libro: $nombreLibro")
-                Text(text = "Nueva Fecha: $fechaNueva")
+            Row(
+                modifier = Modifier.padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.portada_clean_code),
+                    contentDescription = "Portada de $nombreLibro",
+                    modifier = Modifier.height(60.dp)
+                )
+
+                Spacer(modifier = Modifier.width(16.dp))
+
+                Column {
+                    Text(text = "Libro: $nombreLibro")
+                    Text(text = "Nueva Fecha: $fechaNueva")
+                }
             }
         }
 
